@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Taco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="/public/img/ChatGPT Image Apr 20, 2026, 10_19_19 PM.png" class="headerLogo">
+     <!-- <span>HAPPY TACO</span> -->
+  </div>
+
+  <nav class="nav">
+    <a href="/public/html/index.html">Home</a>
+    <a href="/public/html/menu.html">Menu</a>
+    <a href="/public/html/about.html">About</a>
+    <a href="/public/html/locations.html">Location</a>
+     <a href="/public/html/admin.html">Admin</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <button class="order-btn">Order Now</button>
+</header>
+<h1>Admin Dashboard</h1>
+
+<hr>
+
+<h2>Add Menu Item</h2>
+<form id="menuForm">
+    <input type="text" name="name" placeholder="Item Name" required><br>
+    <textarea name="description" placeholder="Description"></textarea><br>
+    <input type="number" step="0.01" name="price" placeholder="Price"><br>
+    <input type="text" name="image" placeholder="Image URL"><br>
+    <button type="submit">Add Menu Item</button>
+</form>
+
+<hr>
+
+<h2>Add Event</h2>
+<form id="eventForm">
+    <input type="text" name="name" placeholder="Event Name" required><br>
+    <input type="date" name="date" required><br>
+    <input type="text" name="location" placeholder="Location"><br>
+    <button type="submit">Add Event</button>
+</form>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; Happy Taco</p>
+
+        <nav class="footer-links">
+            <a href="/public/html/menu.html">Menu</a>
+            <a href="/public/html/locations.html">Events</a>
+            <a href="/public/html/admin.html">Admin</a>
+        </nav>      
+    </div>
+</footer>
+ 
+</body>
+</html>
