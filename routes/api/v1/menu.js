@@ -9,7 +9,7 @@ router.get('/', async (request, response) => {
     const collection = await getMenu()
     const found = await collection.find().toArray()
     console.log(found)
-    response.send('done')
+    response.send(found)
 })
 
 router.get('/menu/:id', async (request, response) => {
@@ -19,7 +19,10 @@ router.get('/menu/:id', async (request, response) => {
     response.send('done')
 })
 
-router.post('/menu', (request, response) => {
-
+router.post('/menu', async (request, response) => {
+    const { name, category, description, price, image } = request.body
+    const collection = await getMenu()
+    const { acknowledged, insertedID } = await collection.insertOne({ name, category, description, price, image })
+    response.send({ acknowledged, insertedID })
 })
 module.exports = router

@@ -1,18 +1,18 @@
 const path = require('path')
 const router = require('express').Router()
 
-const root = path.join(__dirname, '..', 'public')
+const root = path.join(__dirname, '..', 'public', 'html')
 
-router.get('/', (request, repsonse) => {
-
+router.get('/', (request, response) => {
+    response.sendFile('index.html', {root})
 })
 
-router.get('/event/:eventId', (request, repsonse) => {
-
+router.get('/event/:eventId', (request, response) => {
+    response.sendFile('index.html', {root})
 })
 
-router.get('/admin', (request, repsonse) => {
-
+router.get('/admin', (request, response) => {
+    response.sendFile('index.html', {root})
 })
 
 module.exports = router

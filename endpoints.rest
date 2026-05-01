@@ -3,5 +3,11 @@
 ###get menu items
 get {{url}}/menu/
 
-###
+###get event items
 get {{url}}/events/
+
+###get menu items by id
+get {{url}}/menu/69f24bf4d85818d65117e614
+
+###get event items
+get {{url}}/events/69f24c23d85818d65117e622
