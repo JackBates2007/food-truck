@@ -12,11 +12,11 @@ router.get('/', async (request, response) => {
     response.send(found)
 })
 
-router.get('/menu/:id', async (request, response) => {
-    const { ObjectId } = request.params
+router.get('/:id', async (request, response) => {
+    const { id } = request.params
     const collection = await getMenu()
-    console.log(collection.find().toArray())
-    response.send('done')
+    const found = await collection.findOne({ _id: new ObjectId(id) })
+    response.send(found)
 })
 
 router.post('/menu', async (request, response) => {
