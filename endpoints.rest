@@ -11,3 +11,21 @@ get {{url}}/menu/69f24bf4d85818d65117e614
 
 ###get event items
 get {{url}}/events/69f24c23d85818d65117e622
+
+###post menu item
+Post {{url}}/menu
+content-type: application/json
+
+{
+    "_id": "69f24c23d85818d65117e62z", "name": "Beef Tacos", "category": "Entree", "description": "Beef, lettuce, tomatoes, onions",
+    "price": "3", "image": "https://therealfooddietitians.com/wp-content/uploads/2024/02/Baked-Tacos-7-1024x1536.jpg"
+}
+
+###post event
+Post {{url}}/events
+content-type: application/json
+
+{
+    "_id": "69f24c23d85818d65117e62z", "name": "Taco Tuesday", "date": "July 4, 2026",
+    "time": "12:00 PM - 7:00 PM", "location": "Oshkosh Downtown"
+}

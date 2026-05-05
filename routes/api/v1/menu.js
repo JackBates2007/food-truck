@@ -19,10 +19,10 @@ router.get('/:id', async (request, response) => {
     response.send(found)
 })
 
-router.post('/menu', async (request, response) => {
-    const { name, category, description, price, image } = request.body
+router.post('/', async (request, response) => {
+    const {_id, name, category, description, price, image } = request.body
     const collection = await getMenu()
-    const { acknowledged, insertedID } = await collection.insertOne({ name, category, description, price, image })
+    const { acknowledged, insertedID } = await collection.insertOne({_id, name, category, description, price, image })
     response.send({ acknowledged, insertedID })
 })
 module.exports = router

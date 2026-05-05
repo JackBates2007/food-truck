@@ -19,10 +19,10 @@ router.get('/:id', async (request, response) => {
     response.send(found)
 })
 
-router.post('/events', async (request, response) => {
-    const { name, category, description, price, image } = request.body
+router.post('/', async (request, response) => {
+    const {_id, name, date, time, location } = request.body
     const collection = await getEvents()
-    const { acknowledged, insertedID } = await collection.insertOne({ name, category, description, price, image })
+    const { acknowledged, insertedID } = await collection.insertOne({_id, name, date, time, location })
     response.send({ acknowledged, insertedID })
 })
 module.exports = router
