@@ -8,7 +8,6 @@ const getMenu = async () => {
 router.get('/', async (request, response) => {
     const collection = await getMenu()
     const found = await collection.find().toArray()
-    console.log(found)
     response.send(found)
 })
 
@@ -20,9 +19,9 @@ router.get('/:id', async (request, response) => {
 })
 
 router.post('/', async (request, response) => {
-    const {_id, name, category, description, price, image } = request.body
+    const { name, category, description, price, image } = request.body
     const collection = await getMenu()
-    const { acknowledged, insertedID } = await collection.insertOne({_id, name, category, description, price, image })
-    response.send({ acknowledged, insertedID })
+    const { acknowledged, insertedId } = await collection.insertOne({ name, category, description, price, image })
+    response.send({ acknowledged, insertedId })
 })
 module.exports = router

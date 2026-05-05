@@ -1,16 +1,17 @@
-
+//menu elements
 const tacosList = document.querySelector(".tacos-list")
 const sidesList = document.querySelector(".sides-list")
 const drinksList = document.querySelector(".drinks-list")
+//model elements
 const modal = document.getElementById("menuModal")
 const closeButton = document.querySelector(".close-button")
-
 const modalElements = {
     name: document.getElementById('menumodalName'),
     description: document.getElementById('menumodalDescription'),
     price: document.getElementById('menumodalPrice'),
     image: document.getElementById('menumodalImage')
 }
+
 const getMenuItems = async () => {
     const response = await fetch('/api/v1/menu')
     return await response.json()

@@ -949,7 +949,8 @@ form label {
 
 /* Inputs + textarea */
 form input,
-form textarea {
+form textarea,
+form select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -961,7 +962,8 @@ form textarea {
 
 /* Focus effect */
 form input:focus,
-form textarea:focus {
+form textarea:focus,
+form select:focus {
   border-color: #4fd1c5;
   outline: none;
   box-shadow: 0 0 5px rgba(79, 209, 197, 0.4);
