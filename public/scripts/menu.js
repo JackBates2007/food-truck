@@ -2,7 +2,15 @@
 const tacosList = document.querySelector(".tacos-list")
 const sidesList = document.querySelector(".sides-list")
 const drinksList = document.querySelector(".drinks-list")
-const eventsList = document.querySelector(".event-card")
+const modal = document.getElementById("menuModal")
+const closeButton = document.querySelector(".close-button")
+
+const modalElements = {
+    name: document.getElementById('menumodalName'),
+    description: document.getElementById('menumodalDescription'),
+    price: document.getElementById('menumodalPrice'),
+    image: document.getElementById('menumodalImage')
+}
 const getMenuItems = async () => {
     const response = await fetch('/api/v1/menu')
     return await response.json()
@@ -28,13 +36,36 @@ const showMenuList = menu => {
         menuItem.innerHTML = `
             <img src="${imageUrl}" alt="${name}" crossorigin="anonymous" style="width: 175px; height: 175px; object-fit: cover;">
             <div>
+                </br>
+                </br>
+                </br>
                 <h3>${name}</h3>
-                <p>${description}</p>
+                
             </div>
             <span>$${price}</span>
         `
+        menuItem.onclick = () => showMenuDetails(_id)
         list.appendChild(menuItem)
     })
+}
+const showMenuDetails = async id => {
+
+    const { name, image, description, price } = await getMenu(id)
+
+    modalElements.name.textContent = name
+    modalElements.description.textContent = description
+    modalElements.price.textContent = `$${price}`
+    modalElements.image.src = image
+
+
+
+    modal.style.display = 'flex'
+}
+
+closeButton.onclick = () => modal.style.display = 'none'
+
+window.onclick = event => {
+    if (event.target === modal) modal.style.display = 'none'
 }
 
     ; (async () => {

@@ -1,5 +1,13 @@
 
 const eventsList = document.querySelector(".event-card")
+const modal = document.getElementById("eventModal")
+const closeButton = document.querySelector(".close-button")
+
+const modalElements = {
+    name: document.getElementById('eventmodalName'),
+    description: document.getElementById('eventmodalDate'),
+    price: document.getElementById('eventmodalLocation')
+}
 
 const getEvents = async () => {
     const response = await fetch('/api/v1/events')
@@ -15,11 +23,28 @@ const showEventList = events => {
         eventItem.className = "event-item"
         eventItem.innerHTML = `
             <h3>${name}</h3>
-            <p><strong>Date:</strong> ${date}</p>
-            <p><strong>Location:</strong> ${location}</p>
         `
+        eventItem.onclick = () => showEventDetails(_id)
         eventsList.appendChild(eventItem)
     })
+}
+const showEventDetails = async id => {
+
+    const { name, date, location } = await getEvent(id)
+
+    modalElements.name.textContent = name
+    modalElements.description.textContent = date
+    modalElements.price.textContent = location
+
+
+
+    modal.style.display = 'flex'
+}
+
+closeButton.onclick = () => modal.style.display = 'none'
+
+window.onclick = event => {
+    if (event.target === modal) modal.style.display = 'none'
 }
     ; (async () => {
         const events = await getEvents()
