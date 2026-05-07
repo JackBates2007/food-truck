@@ -7,10 +7,13 @@ router.get('/', (request, response) => {
     response.sendFile('index.html', { root })
 })
 router.get('/menu', (request, response) => {
-    response.sendFile('index.html', { root })
+    response.sendFile('menu.html', { root })
 })
 router.get('/menu/:id', (request, response) => {
     response.sendFile('index.html', { root })
+})
+router.get('/events', (request, response) => {
+    response.sendFile('locations.html', { root })
 })
 router.get('/events/:id', (request, response) => {
     response.sendFile('index.html', { root })
